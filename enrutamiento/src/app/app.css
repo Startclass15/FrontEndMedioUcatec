@@ -1,0 +1,21 @@
+.sidenav-container{
+    height: 100vh;
+}
+.contenidoPrincipal{
+    padding: 15px;
+}
+.navegacion{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+.navegacion a.mat-list-item{
+    width: auto;
+    padding: 0 16px;
+    text-decoration: none;
+    color:white;
+}
+.navegacion a:active{
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}

@@ -57,7 +57,6 @@ const dataProductos:Producto[]=[
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'angularMaterialAvanzado';
   implements AfterViewInit{
     columnas:string[]=["nombre","precio","categoria"];
     dataSource=new MatTableDataSource<Producto>(dataProductos);

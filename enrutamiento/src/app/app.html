@@ -1,0 +1,23 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+  
+          
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar
+            color="primary"
+        >Angular 20 Enrutamiento</mat-toolbar>
+        <mat-nav-list class="navegacion">
+            <a mat-list-item href="/">Inicio</a>
+            <a mat-list-item href="/pagina2">Pagina 2</a>
+            <a mat-list-item href="/pagina3">Pagina 3</a>
+            <a mat-list-item href="/pagina4">Pagina 4</a>
+        </mat-nav-list>
+        <div class="contenidoPrincipal">
+            <router-outlet />
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
