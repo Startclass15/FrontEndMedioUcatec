@@ -1,0 +1,51 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step
+        [stepControl]="primerFormulario"
+        label="Primer Formulario"
+    >
+    <form [formGroup]="primerFormulario" >
+        <mat-form-field>
+            <mat-label>Nombre:</mat-label>
+            <input matInput type="text" placeholder="Ingrese su nombre" formControlName="nombre" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Celular</mat-label>
+            <input type="tel" matInput placeholder="Ingrese su Celular: " formControlName="celular" required>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Carrera</mat-label>
+            <input type="text" matInput placeholder="Ingrese su carrera: " formControlName="carrera" required>
+            
+        </mat-form-field>
+        <div>
+            <button mat-flat-button matStepperNext [disabled]="!primerFormulario.valid">
+                Siguiente
+            </button>
+        </div>
+    </form>
+
+    </mat-step>
+    <mat-step [stepControl]="segundoFormulario" label="Segundo Formulario">
+    <form [formGroup]="segundoFormulario">
+        <mat-form-field>
+            <mat-label>Fecha de Nacimiento </mat-label>
+            <input matInput  type="date" formControlName="fechaNacimiento">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Ingrese su edad:</mat-label>
+            <input matInput  type="number" placeholder="Ingrese su edad: "formControlName="edad" >
+        </mat-form-field>
+        <br>
+        <div>
+            <button mat-flat-button matStepperNext [disabled]="!segundoFormulario.valid">Siguiente</button>
+        </div>
+
+    </form>
+
+   </mat-step>
+
+</mat-horizontal-stepper>
