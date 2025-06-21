@@ -47,5 +47,24 @@
     </form>
 
    </mat-step>
+   <mat-step [stepControl]="tercerFormulario" label="Tercer Formulario">
+        <form [formGroup]="tercerFormulario">
+            <mat-form-field>
+                <mat-label>Direccion</mat-label>
+                <input matInput type="text" placeholder="Ingrese su direccion: " formControlName="direccion">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Ci</mat-label>
+                <input matInput type="number" placeholder="Ingrese su ci " formControlName="ci">
+            </mat-form-field>
+            <br>
+            <div>
+                <button mat-flat-button (click)="enviarFormulario()">Enviar</button>
+
+            </div>
+
+        </form>
+   </mat-step>
 
 </mat-horizontal-stepper>

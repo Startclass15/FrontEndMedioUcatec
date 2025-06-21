@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 //importar los formularios
 import { FormGroup,FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
+//Importacion del servicio
+import { Basedatos } from '../basedatos';
 
 @Component({
   selector: 'app-formularios',
@@ -29,6 +30,7 @@ export class Formularios {
   //definir el constructor
   constructor(
     private _formBuilder:FormBuilder,
+    private airtableServicio:Basedatos,
 
   ){
     //Paso 3. Definir el formulario del primer paso 
@@ -52,6 +54,28 @@ export class Formularios {
   }
 
   //Paso 4. Metodo para enviar el formulario
+  enviarFormulario():void{
+    if(this.primerFormulario.valid && this.segundoFormulario.valid && this.tercerFormulario){
+      const datosFormulario={
+        ...this.primerFormulario.value,
+        ...this.segundoFormulario.value,
+        ...this.tercerFormulario.value,
+      };
+      //mostrar los datos en la consola
+      console.log(datosFormulario)
+      //envio a una base de datos solicitudes HTTP
+      this.airtableServicio.añadirEstudiante(datosFormulario).subscribe(
+        (respuesta)=>{
+          console.log("Se registro correctamente los datos en airtable", respuesta)
+
+        }
+      );
+      //Actualizacion de los datos
+      this.primerFormulario.reset();
+      this.segundoFormulario.reset();
+      this.tercerFormulario.reset();
+    }
+  }
 
 
 
